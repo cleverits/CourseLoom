@@ -228,7 +228,7 @@ body{
     cursor: pointer;
     width: 70%;
     height: 600px;
-    background-image: url(/img/CourseLoom_photo.jpg);
+    background-image: url("../img/CourseLoom_photo.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 25px;
