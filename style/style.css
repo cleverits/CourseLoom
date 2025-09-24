@@ -228,7 +228,11 @@ body{
     cursor: pointer;
     width: 70%;
     height: 600px;
+<<<<<<< HEAD
     background-image: url("../img/CourseLoom_photo.jpg");
+=======
+    background-image: url("img/CourseLoom_photo.jpg");
+>>>>>>> 35678ba (Moved index.html to root for GitHub Pages)
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 25px;
