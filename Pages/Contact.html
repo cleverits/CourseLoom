@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form with Confirmation</title>
+    <link rel="website icon" type="png" href="/img/Logo2.png">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <style>
+        ::selection{
+            color: gold;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border: 0;
+            outline: 0;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+        }
+        body:hover{
+            cursor: pointer;
+        }
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background-color: black !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .contacts {
+            padding: 2rem 9%;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .contacts .heading {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #00eb43 !important;
+            font-size: 40px;
+            line-height: 1.4;
+            letter-spacing: 1.2px;
+        }
+
+        .contacts .heading span {
+            color: #00eb43;
+        }
+
+        .contacts .row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .contacts .row .img {
+            flex: 1 1 40rem;
+            text-align: center;
+        }
+
+        .contacts .row .img img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .contacts .row form {
+            flex: 1 1 40rem;
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+            border: 2px solid #00eb43;
+        }
+
+        .contacts .row form .box {
+            width: 100%;
+            margin: 1rem 0rem 2rem;
+            border-radius: 0.5rem;
+            padding: 1.2rem;
+            font-size: 1.6rem;
+            background: #2d2d2d;
+            color: gold;
+            border: 1px solid #00eb43;
+        }
+
+        .contacts .row form .box:focus {
+            border: 2px solid gold;
+            background: #333333;
+        }
+
+        .contacts .row form span {
+            color: gold;
+            font-size: calc(12px + (16 - 12) * ((100vw - 300px) / (1600 - 300)));
+        }
+
+        .contacts .row form .gender {
+            margin: 1rem 0rem 2rem;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .contacts .row form .gender label {
+            margin-left: 0.2rem;
+            font-size: 1.6rem;
+            color: gold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contacts .row form .gender input {
+            appearance: none;
+            width: 1.8rem;
+            height: 1.8rem;
+            background-color: #2d2d2d;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 50%;
+            border: 2px solid #00eb43;
+        }
+
+        .contacts .row form .gender input:checked {
+            background-color: gold;
+            border: 2px solid gold;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.7);
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1.6rem;
+            width: 100%;
+            background: #00eb43;
+            color: black;
+            margin-top: 1rem;
+            border: 2px solid #00eb43;
+        }
+
+        .btn:hover {
+            background-color: gold;
+            color: black;
+            border: 2px solid gold;
+            transform: translateY(-2px);
+        }
+
+        .thank-you-message {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+            background: #1a1a1a;
+            border-radius: 1rem;
+            margin-top: 2rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+            flex: 1 1 40rem;
+            border: 2px solid #00eb43;
+        }
+
+        .thank-you-message h3 {
+            font-size: 2.5rem;
+            color: gold;
+            margin-bottom: 1.5rem;
+        }
+
+        .thank-you-message p {
+            font-size: 1.6rem;
+            color: gold;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            color: #00eb43;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .contacts .row {
+                flex-direction: column;
+            }
+            
+            .contacts .row .img {
+                flex: 1 1 100%;
+                margin-bottom: 2rem;
+            }
+            
+            .contacts .row form {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- contacts section start  -->
+    <section class="contacts">
+        <h2 class="heading"><span>Sign Up For A Course Or Get A Free Consultation</span></h2>
+
+        <div class="row">
+            <div class="img">
+               <img src="/img/it-infrastructure-outsourcing-services-500x500.png" alt="">
+            </div>
+
+            <form id="contactForm" method="POST">
+                <input type="hidden" name="access_key" value="de979711-e735-4f6b-af6a-a7363fc0cfcd">
+
+                <span>Your name</span>
+                <input type="text" name="name" class="box" required placeholder="Enter your name.." autocomplete="off">
+
+                <span>Your email</span>
+                <input type="email" name="email" class="box" required placeholder="Enter your email.." autocomplete="off">
+
+                <span>Your Phone number</span>
+                <input type="number" name="number" class="box" required placeholder="Enter your number.." autocomplete="off">
+
+                <!-- <span>Select courses</span>
+                <select name="cources" class="box" required>
+                    <option value="" disabled selected>Select courses</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Python">Python</option>
+                </select> -->
+
+                <span>Select gender</span>
+                <div class="gender">
+                    <input type="radio" name="gender" id="male" value="male" required>
+                    <label for="male">male</label>
+
+                    <input type="radio" name="gender" id="female" value="female">
+                    <label for="female">female</label>
+                </div>
+
+                <button type="submit" class="btn" name="send">Send data</button>
+            </form>
+
+            <div class="thank-you-message" id="thankYouMessage">
+                <div class="success-icon">✓</div>
+                <h3>Thank you!</h3>
+                <p>We will contact you soon</p>
+            </div>
+        </div>
+    </section>
+    <!-- contacts section end  -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const thankYouMessage = document.getElementById('thankYouMessage');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(form);
+                
+                // Send data to Web3Forms using Fetch API
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Show thank you message and hide form
+                        form.style.display = 'none';
+                        thankYouMessage.style.display = 'block';
+                    } else {
+                        console.error('Error:', data);
+                        alert('There was an error submitting the form. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was an error submitting the form. Please try again.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
